@@ -1,0 +1,22 @@
+{
+  "name": "phonebook-backend",
+  "version": "1.0.0",
+  "description": "backend api for app phonebook",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"build:ui": "rm -rf ../phonebook-backend/dist && cd ../phonebook-frontend && rm -rf dist && npm run build && cp -r dist ../phonebook-backend/dist",
+		"deploy:full": "npm run build:ui && cd ../phonebook-backend && git add . && git commit -m 'uibuild' && git push"
+  },
+  "author": "Bohdan Rud",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
